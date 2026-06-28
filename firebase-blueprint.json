@@ -1,0 +1,110 @@
+{
+  "entities": {
+    "Category": {
+      "title": "Category",
+      "description": "Category of medical topics",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Name of category" },
+        "order": { "type": "number" }
+      },
+      "required": ["name", "order"]
+    },
+    "Disease": {
+      "title": "Disease",
+      "description": "A specific medical disease fiche",
+      "type": "object",
+      "properties": {
+        "categoryId": { "type": "string" },
+        "name": { "type": "string" },
+        "definition": { "type": "map" },
+        "epidemiology": { "type": "map" },
+        "physiopathology": { "type": "map" },
+        "etiologies": { "type": "array" },
+        "clinical": { "type": "map" },
+        "diagnosis": { "type": "map" },
+        "differentialDiagnosis": { "type": "map" },
+        "complications": { "type": "map" },
+        "treatment": { "type": "map" },
+        "keyPoints": { "type": "map" }
+      },
+      "required": ["categoryId", "name"]
+    },
+    "Favorite": {
+      "title": "Favorite",
+      "description": "A bookmarked disease",
+      "type": "object",
+      "properties": {
+        "diseaseId": { "type": "string" },
+        "diseaseName": { "type": "string" },
+        "createdAt": { "type": "timestamp" }
+      },
+      "required": ["diseaseId", "diseaseName", "createdAt"]
+    },
+    "User": {
+      "title": "User",
+      "description": "Public user profile",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "role": { "type": "string" },
+        "createdAt": { "type": "timestamp" }
+      },
+      "required": ["email", "role", "createdAt"]
+    },
+    "Payment": {
+      "title": "Payment",
+      "description": "Premium subscription payment proof",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "userEmail": { "type": "string" },
+        "userName": { "type": "string" },
+        "transactionNumber": { "type": "string" },
+        "paymentDate": { "type": "string" },
+        "screenshotUrl": { "type": "string" },
+        "amount": { "type": "number" },
+        "status": { "type": "string", "enum": ["pending", "approved", "rejected"] },
+        "createdAt": { "type": "timestamp" }
+      },
+      "required": ["userId", "transactionNumber", "paymentDate", "screenshotUrl", "amount", "status", "createdAt"]
+    },
+    "Setting": {
+      "title": "Setting",
+      "description": "General application settings configured by admin",
+      "type": "object",
+      "properties": {
+        "ccp": { "type": "string" },
+        "rip": { "type": "string" }
+      },
+      "required": ["ccp", "rip"]
+    }
+  },
+  "firestore": {
+    "/categories/{categoryId}": {
+      "schema": { "$ref": "#/entities/Category" },
+      "description": "Category entries"
+    },
+    "/diseases/{diseaseId}": {
+      "schema": { "$ref": "#/entities/Disease" },
+      "description": "Disease fiches"
+    },
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/User" },
+      "description": "User profile docs"
+    },
+    "/users/{userId}/favorites/{favoriteId}": {
+      "schema": { "$ref": "#/entities/Favorite" },
+      "description": "User's bookmarked diseases"
+    },
+    "/payments/{paymentId}": {
+      "schema": { "$ref": "#/entities/Payment" },
+      "description": "Proof of payments for premium subscription"
+    },
+    "/settings/{settingId}": {
+      "schema": { "$ref": "#/entities/Setting" },
+      "description": "Payment and other configuration settings"
+    }
+  }
+}
