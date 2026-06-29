@@ -1,10 +1,11 @@
 {
-  "projectId": "causal-cosmos-v07pf",
-  "appId": "1:845313955527:web:7e2478525cdc61a47d50e2",
-  "apiKey": "AIzaSyAcSVk3BB4f1ka10YSD4SrP-0jTYxJV-nk",
-  "authDomain": "causal-cosmos-v07pf.firebaseapp.com",
-  "firestoreDatabaseId": "ai-studio-cdf63748-bcf5-453b-b436-28f1c8c25699",
-  "storageBucket": "causal-cosmos-v07pf.firebasestorage.app",
-  "messagingSenderId": "845313955527",
+  "projectId": "neuro-auth-5e220",
+  "appId": "1:484699058658:web:e627cbc91ff2fb216889bb",
+  "apiKey": "AIzaSyD4zAlendftzI0QIB5WD7xI9lC7pcTErvk",
+  "authDomain": "neuro-auth-5e220.firebaseapp.com",
+  "firestoreDatabaseId": "default",
+  "storageBucket": "neuro-auth-5e220.firebasestorage.app",
+  "messagingSenderId": "484699058658",
   "measurementId": ""
 }
+
